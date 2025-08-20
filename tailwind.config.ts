@@ -26,15 +26,30 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))',
+					glow: 'hsl(var(--success-glow))'
+				},
+				error: {
+					DEFAULT: 'hsl(var(--error))',
+					foreground: 'hsl(var(--error-foreground))',
+					glow: 'hsl(var(--error-glow))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
 				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
+					DEFAULT: 'hsl(var(--error))',
+					foreground: 'hsl(var(--error-foreground))'
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
@@ -52,6 +67,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				quiz: {
+					correct: 'hsl(var(--quiz-correct))',
+					incorrect: 'hsl(var(--quiz-incorrect))',
+					selected: 'hsl(var(--quiz-selected))',
+					hover: 'hsl(var(--quiz-hover))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -62,6 +83,21 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-success': 'var(--gradient-success)',
+				'gradient-error': 'var(--gradient-error)',
+				'gradient-bg': 'var(--gradient-bg)'
+			},
+			boxShadow: {
+				quiz: 'var(--shadow-quiz)',
+				success: 'var(--shadow-success)',
+				error: 'var(--shadow-error)'
+			},
+			transitionTimingFunction: {
+				'quiz': 'cubic-bezier(0.4, 0, 0.2, 1)',
+				'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +120,30 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'quiz-success': {
+					'0%': { transform: 'scale(1)', backgroundColor: 'hsl(var(--card))' },
+					'50%': { transform: 'scale(1.02)', backgroundColor: 'hsl(var(--success))' },
+					'100%': { transform: 'scale(1)', backgroundColor: 'hsl(var(--success))' }
+				},
+				'quiz-error': {
+					'0%': { transform: 'scale(1)', backgroundColor: 'hsl(var(--card))' },
+					'25%': { transform: 'translateX(-5px)', backgroundColor: 'hsl(var(--error))' },
+					'75%': { transform: 'translateX(5px)', backgroundColor: 'hsl(var(--error))' },
+					'100%': { transform: 'translateX(0)', backgroundColor: 'hsl(var(--error))' }
+				},
+				'bounce-in': {
+					'0%': { transform: 'scale(0.8)', opacity: '0' },
+					'50%': { transform: 'scale(1.1)', opacity: '1' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'quiz-success': 'quiz-success 0.6s ease-out',
+				'quiz-error': 'quiz-error 0.6s ease-out',
+				'bounce-in': 'bounce-in 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
 			}
 		}
 	},
